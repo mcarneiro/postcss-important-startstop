@@ -28,12 +28,14 @@ This plugin is useful for a Utility-Based aproach to CSS.
 
 ### Plain
 
+#### Input
 ```css
 /* @important(start) */
 .john { display: block; }
 /* @important(stop) */
 ```
 
+#### Result
 ```css
 .john { display: block !important; }
 ```
@@ -44,12 +46,8 @@ This plugin is useful for a Utility-Based aproach to CSS.
 
 ```css
 /* @important(start) */
-.john { display: block; }
+@import "myutilities.css";
 /* @important(stop) */
-```
-
-```css
-.john { display: block !important; }
 ```
 
 ## Usage
