@@ -10,4 +10,14 @@
     /* @important(stop) */
 }
 
+@media (max-width: 100px) {
+    .jill { display: block; }
+}
+
+/* @important(start) */
+@media (max-width: 100px) {
+    .jill { display: block !important; }
+}
+/* @important(stop) */
+
 .jack { display: block; }
