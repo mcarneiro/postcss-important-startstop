@@ -1,0 +1,13 @@
+.jim { display: block; }
+
+/* @important(start) */
+.john { display: block; }
+/* @important(stop) */
+
+.joe {
+    /* @important(start) */
+    display: block;
+    /* @important(stop) */
+}
+
+.jack { display: block; }

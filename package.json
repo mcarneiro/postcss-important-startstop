@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/psren/postcss-important-startstop",
   "dependencies": {
+    "css-annotation": "^0.6.2",
     "postcss": "^6.0.1"
   },
   "devDependencies": {
