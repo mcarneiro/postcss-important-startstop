@@ -1,28 +1,38 @@
-const fs = require('fs');
 const postcss = require('postcss');
 const plugin = require('./');
 
-function equals(input, output, opts = {}, expectedWarnings = 0) {
+function run(input) {
     return postcss()
-        .use(plugin(opts))
-        .process(input)
+        .use(plugin())
+        .process(input);
+}
+
+it('adds important to all declarations between annotations', () => {
+    const input = `
+      .a { color: red; }
+      @important {
+        .b { color: red; }
+      }
+      .c {
+        @important {
+          color: red;
+        }
+        background-color: green;
+      }
+    `;
+
+    const expected = `
+      .a { color: red; }
+      .b { color: red !important; }
+      .c {
+          color: red !important;
+        background-color: green;
+      }
+    `;
+
+    return run(input)
         .then(result => {
-            expect(result.css).toEqual(output);
-            expect(result.warnings().length).toBe(expectedWarnings);
+            expect(result.css).toBe(expected);
+            expect(result.warnings().length).toBe(0);
         });
-}
-
-function expectWarning(input, opts = {}) {
-    return equals(input, input, opts, 1);
-}
-
-it('must have the same amount of start tags and end tags', () => {
-    expectWarning('/* @important(start) */');
-});
-
-it('add important to all declarations between annotations', () => {
-    let given = fs.readFileSync('test/given.css', 'utf-8');
-    let expected = fs.readFileSync('test/expected.css', 'utf-8');
-
-    return equals(given, expected, {});
 });
