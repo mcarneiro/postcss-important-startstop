@@ -8,19 +8,21 @@
     "postcss-plugin",
     "important"
   ],
-  "author": "Patrick Heller 💩 <ph@wacg.de>",
+  "author": [
+    "Marcelo Carneiro <mcarneiro@gmail.com>",
+    "Patrick Heller 💩 <ph@wacg.de>"
+  ],
   "license": "MIT",
-  "repository": "psren/postcss-important-startstop",
+  "repository": "mcarneiro/postcss-important-startstop",
   "bugs": {
-    "url": "https://github.com/psren/postcss-important-startstop/issues"
+    "url": "https://github.com/mcarneiro/postcss-important-startstop/issues"
   },
-  "homepage": "https://github.com/psren/postcss-important-startstop",
+  "homepage": "https://github.com/mcarneiro/postcss-important-startstop",
   "dependencies": {
     "css-annotation": "^0.6.2",
     "postcss": "^6.0.1"
   },
   "devDependencies": {
-    "css-clean": "^1.7.1",
     "eslint": "^3.19.0",
     "eslint-config-postcss": "^2.0.2",
     "jest": "^20.0.0"

@@ -2,9 +2,9 @@ const fs = require('fs');
 const postcss = require('postcss');
 const plugin = require('./');
 
-function equals(input, output, opts = {}, expectedWarnings = 0) {
+function equals(input, output, expectedWarnings = 0) {
     return postcss()
-        .use(plugin(opts))
+        .use(plugin())
         .process(input)
         .then(result => {
             expect(result.css).toEqual(output);
@@ -12,17 +12,17 @@ function equals(input, output, opts = {}, expectedWarnings = 0) {
         });
 }
 
-function expectWarning(input, opts = {}) {
-    return equals(input, input, opts, 1);
+function expectWarning(input, output) {
+    return equals(input, output, 1);
 }
 
 it('must have the same amount of start tags and end tags', () => {
-    expectWarning('/* @important(start) */');
+    return expectWarning('/* @important(start) */', '');
 });
 
 it('add important to all declarations between annotations', () => {
     let given = fs.readFileSync('test/given.css', 'utf-8');
     let expected = fs.readFileSync('test/expected.css', 'utf-8');
 
-    return equals(given, expected, {});
+    return equals(given, expected);
 });

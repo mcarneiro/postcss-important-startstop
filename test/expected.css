@@ -1,23 +1,15 @@
 .jim { display: block; }
-
-/* @important(start) */
 .john { display: block !important; }
-/* @important(stop) */
 
 .joe {
-    /* @important(start) */
     display: block !important;
-    /* @important(stop) */
 }
 
 @media (max-width: 100px) {
     .jill { display: block; }
 }
-
-/* @important(start) */
 @media (max-width: 100px) {
     .jill { display: block !important; }
 }
-/* @important(stop) */
 
 .jack { display: block; }
