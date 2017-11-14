@@ -6,6 +6,8 @@
 
 [PostCSS] plugin which adds !important based on an atRule
 
+_There's an `annotation` branch with comment implementation version, useful for projects using SASS._
+
 ## Why should I use Important?
 
 This plugin is useful for a Utility-based approach to CSS.
